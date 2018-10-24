@@ -1,0 +1,48 @@
+<md-dialog aria-label="Add Url Data" flex="65">
+	<form ng-cloak>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<h2>Add a little bird</h2>
+				<span flex></span>
+				<md-button class="md-icon-button" ng-click="cancel()">
+					<md-icon aria-label="Close dialog">close</md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+
+		<md-dialog-content>
+			<div class="md-dialog-content">
+				<md-input-container class="md-icon-float md-block">
+					<label>Label</label>
+					<md-icon class="name">label</md-icon>
+					<input ng-model="littleBird.label" type="text">
+				</md-input-container>
+
+				<md-input-container class="md-icon-float md-block">
+					<label>URL</label>
+					<md-icon class="name">link</md-icon>
+					<input ng-model="littleBird.url" type="text">
+				</md-input-container>
+
+				<md-input-container class="md-icon-float md-block">
+					<label>Extract Method</label>
+					<md-icon class="name">input</md-icon>
+					<md-select ng-model="littleBird.extract_method">
+						<md-option value="ONE">
+							ONE
+						</md-option>
+						<md-option value="TWO">
+							TWO
+						</md-option>
+					</md-select>
+				</md-input-container>
+			</div>
+		</md-dialog-content>
+
+		<md-dialog-actions layout="row">
+			<span flex></span>
+			<md-button ng-click="cancel()">CANCEL</md-button>
+			<md-button ng-click="ok()">ADD</md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>

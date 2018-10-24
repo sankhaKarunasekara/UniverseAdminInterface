@@ -1,0 +1,73 @@
+<md-card>
+	<div layout="row" layout-wrap class="checkboxes">
+		<md-checkbox ng-model="options.rowSelection">Row Selection</md-checkbox>
+		<md-checkbox ng-model="options.multiSelect">Multiple Selection</md-checkbox>
+		<md-checkbox ng-model="options.autoSelect">Auto Selection</md-checkbox>
+		<md-checkbox ng-model="options.decapitate">Decapitate</md-checkbox>
+		<md-checkbox ng-model="options.largeEditDialog">Lard Edit Dialogs</md-checkbox>
+		<md-checkbox ng-model="options.boundaryLinks">Pagination Boundary Links</md-checkbox>
+		<md-checkbox ng-model="options.limitSelect" ng-click="toggleLimitOptions()">
+			Pagination Limit Select
+		</md-checkbox>
+		<md-checkbox ng-model="options.pageSelect">Pagination Page Select</md-checkbox>
+	</div>
+</md-card>
+
+<md-card>
+	<md-toolbar class="md-table-toolbar md-default" ng-hide="options.rowSelection && selected.length">
+		<div class="md-toolbar-tools">
+			<span>URL Data</span>
+			<div flex></div>
+			<md-button class="md-button md-primary" ng-click="showAddItemDialog($event)">
+				Add New
+			</md-button>
+
+			<md-button class="md-icon-button" ng-click="refreshItems()">
+				<md-icon>refresh</md-icon>
+			</md-button>
+		</div>
+	</md-toolbar>
+
+	<md-toolbar class="md-table-toolbar alternate" ng-show="options.rowSelection && selected.length">
+		<div class="md-toolbar-tools">
+			<span>{{selected.length}}
+				{{selected.length > 1 ? 'items' : 'item'}}
+				selected</span>
+		</div>
+	</md-toolbar>
+
+	<md-table-container>
+		<table md-table>
+			<thead md-head md-order="myOrder">
+				<th md-column md-numeric>Id</th>
+				<th md-column md-order-by="nameToLower">Label</th>
+				<th md-column>URL</th>
+				<th md-column>Extract Method</th>
+				<th md-column>Last Checked Time</th>
+				<th md-column>State</th>
+				<th md-column>Actions</th>
+			</thead>
+			<tbody md-body>
+				<tr md-row md-select="littleBird" md-select-id="id" md-auto-select ng-repeat="littleBird in littleBirds | orderBy: myOrder">
+					<td md-cell>{{littleBird.id}}</td>
+					<td md-cell>{{littleBird.label}}</td>
+					<td md-cell>{{littleBird.url}}</td>
+					<td md-cell>{{littleBird.extract_method}}</td>
+					<td md-cell>{{littleBird.last_checked_time}}</td>
+					<td md-cell>{{littleBird.state}}</td>
+					<td md-cell>
+						<md-button class="md-icon-button" ng-click="editItem(littleBird)">
+							<md-icon>edit</md-icon>
+						</md-button>
+						<md-button class="md-icon-button" ng-click="deleteItem(littleBird.id)">
+							<md-icon>delete</md-icon>
+						</md-button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</md-table-container>
+
+	<md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{desserts.count}}"
+	 md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+</md-card>

@@ -1,0 +1,42 @@
+<html ng-app="app">
+
+<head>
+  <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
+  <link rel="stylesheet" href="/node_modules/angular-material-data-table/dist/md-data-table.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/table-styles.css">
+  <!-- TODO: go there to see a preveiwe -->
+  <script src="/node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/node_modules/angular-material/angular-material.min.js"></script>
+  <script type="text/javascript" src="/node_modules/angular-aria/angular-aria.min.js"></script>
+  <script type="text/javascript" src="/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="/node_modules/angular-messages/angular-messages.js"></script>
+  <script type="text/javascript" src="/node_modules/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="/node_modules/angular-animate/angular-animate.js"></script>
+
+  <script src="/node_modules/angular-material-data-table/dist/md-data-table.js"></script>
+  <script type="text/javascript" src="/node_modules/angular-material-icons/angular-material-icons.js"></script>
+
+  <link rel='stylesheet' href='/node_modules/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+  <script type='text/javascript' src='/node_modules/angular-loading-bar/build/loading-bar.min.js'></script>
+</head>
+
+<body>
+
+  <body layout="column">
+    <md-toolbar class="md-whiteframe-1dp">
+      <div class="md-toolbar-tools">
+        <div class="md-title">URL DATA</div>
+      </div>
+    </md-toolbar>
+    <md-content laout="column" flex little-birds ng-controller="nutritionController" ng-init="init();"></md-content>
+  </body>
+
+  <script src="/universe/app.js"></script>
+  <script src="/universe.admin.littleBirds/littleBirds.module.js"></script>
+  <script src="/universe.admin.littleBirds/littleBirds.directive.js"></script>
+  <script src="/universe.admin.littleBirds/littleBirds.service.js"></script>
+  <script src="/universe.admin.littleBirds/litttleBirds.controller.js"></script>
+</body>
+
+</html>
